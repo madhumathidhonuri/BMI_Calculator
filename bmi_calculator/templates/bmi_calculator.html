@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            padding:50px;
+            margin:50px;
+            background-color:pink;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1 style="color:blue;">BMI Calculator</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background-color:blue;">Calculate</button>
+    </form>
+
+    {% if result %}
+        <h2 style="color:green;">Your BMI is: {{ result }}</h2>
+        <h3 style="color:green;">Category: {{ category }}</h3>
+    {% endif %}
+    </center>
+</body>
+</html>
